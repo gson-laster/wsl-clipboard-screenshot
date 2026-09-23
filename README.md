@@ -118,7 +118,7 @@ mkdir -p ~/.codex && cat << 'EOF' > ~/.codex/hooks.json
   ]
 }
 EOF
-# 或
+### 或
 文本编辑器（如 nano ~/.codex/config.toml）打开它，把这段配置以 TOML 格式追加到文件末尾：
 [[hooks.SessionStart]]
 type = "command"
