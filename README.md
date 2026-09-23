@@ -106,6 +106,24 @@ wsl-clipboard-screenshot update                       # 检查更新
   }
 }
 ```
+## Gpt Codex 集成
+mkdir -p ~/.codex && cat << 'EOF' > ~/.codex/hooks.json
+{
+  "SessionStart": [
+    {
+      "type": "command",
+      "command": "wsl-clipboard-screenshot start --daemon 2>/dev/null || true",
+      "statusMessage": "正在启动 WSL 剪贴板守护进程..."
+    }
+  ]
+}
+EOF
+#或
+文本编辑器（如 nano ~/.codex/config.toml）打开它，把这段配置以 TOML 格式追加到文件末尾：
+[[hooks.SessionStart]]
+type = "command"
+command = "wsl-clipboard-screenshot start --daemon 2>/dev/null || true"
+statusMessage = "正在启动 WSL 剪贴板守护进程..."
 
 ## 参考
 
